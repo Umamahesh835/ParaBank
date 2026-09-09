@@ -14,7 +14,6 @@ test("login test", async({page})=>{
     //await page.pause();
     expect.soft(await homepage.getCustomerLoginText()).toContain("Customer Login");
     await homepage.clickRegister();
-    await register.fillFirstname("john");
-    await page.waitForTimeout(5000);
+    await register.RegisterUser("John","Doe","123 Main St","Anytown","State","12345","555-1234","123-45-6789","johndoe","password","password");
 
 })
