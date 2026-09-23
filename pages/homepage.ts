@@ -21,13 +21,13 @@ export class HomePage {
         
     }
 
-    async Login(Username:string,Password:string){
+  /*  async Login(Username:string,Password:string){
         await this.username.fill(Username);
         await this.password.fill(Password);
         await this.LoginButton.click();
         
     }
-
+*/
     async clickForgotLoginInfo(){
         await this.Forgot_login_info.click();
     }
