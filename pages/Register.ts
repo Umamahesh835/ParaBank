@@ -26,11 +26,11 @@ export class Register{
         this.City=page.locator("//input[@name='customer.address.city']");
         this.State=page.locator("//input[@name='customer.address.state']");
         this.ZipCode=page.locator("//input[@name='customer.address.zipCode']");
-        this.Phone=page.locator("//input[@name='customer.phone']");
-        this.SSN=page.locator("//input[@name='customer.ssn']");
-        this.Username=page.locator("//input[@name='customer.username']");
-        this.Password=page.locator("//input[@name='customer.password']");
-        this.Confirm=page.locator("//input[@name='customer.confirmPassword']");
+        this.Phone=page.locator("//input[@id='customer.phoneNumber']");
+        this.SSN=page.locator("//input[@id='customer.ssn']");
+        this.Username=page.locator("//input[@id='customer.username']");
+        this.Password=page.locator("//input[@id='customer.password']");
+        this.Confirm=page.locator("//input[@id='repeatedPassword']");
         this.RegisterButton=page.locator("//input[@value='Register']");
     }
 
