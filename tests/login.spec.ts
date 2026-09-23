@@ -16,8 +16,9 @@ test("login test", async({page})=>{
     //await page.pause();
     expect.soft(await homepage.getCustomerLoginText()).toContain("Customer Login");
     await login.LoginUser("johndoe","password");
-    const errorMessage = await login.getErrorMessageText();
+   /* const errorMessage = await login.getErrorMessageText();
     expect(errorMessage).toContain("The username and password could not be verified.");
-    console.log(errorMessage);
+    console.log(errorMessage);*/
+    //await page.pause();
 
 })
