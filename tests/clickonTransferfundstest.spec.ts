@@ -3,7 +3,8 @@ import { HomePage} from "../pages/HomePage.ts";
 import {AccountServices} from "../pages/AccountServices.ts";
 import { Login } from "../pages/Login.ts";
 
-test.fail("click on transfer funds", async({page})=>{
+test.fixme("click on transfer funds", async({page})=>{
+    test.fail();
     const homepage = new HomePage(page);
     const accountservices = new AccountServices(page);
     const login = new Login(page);
