@@ -24,4 +24,8 @@ export class AccountServices{
         this.RequestLoan = page.getByRole('link', {name: 'Request Loan'});
         this.LogOut = page.getByRole('link', {name: 'Log Out'});
     }
+
+    async clickOnTransferFunds(){
+        await this.TransferFunds.click();
+    }
 }
