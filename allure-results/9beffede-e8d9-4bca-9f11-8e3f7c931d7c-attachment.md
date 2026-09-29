@@ -1,0 +1,160 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: clickonTransferfundstest.spec.ts >> click on transfer funds
+- Location: tests\clickonTransferfundstest.spec.ts:6:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('link', { name: 'Transfer Funds' })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - generic [ref=f1e3]:
+      - link:
+        - /url: admin.htm
+      - link "ParaBank":
+        - /url: index.htm
+        - img "ParaBank" [ref=f1e5]
+      - paragraph [ref=f1e6]: Experience the difference
+    - generic [ref=f1e7]:
+      - list [ref=f1e8]:
+        - listitem [ref=f1e9]: Solutions
+        - listitem [ref=f1e10]:
+          - link "About Us" [ref=f1e11]:
+            - /url: about.htm
+        - listitem [ref=f1e12]:
+          - link "Services" [ref=f1e13]:
+            - /url: services.htm
+        - listitem [ref=f1e14]:
+          - link "Products" [ref=f1e15]:
+            - /url: http://www.parasoft.com/jsp/products.jsp
+        - listitem [ref=f1e16]:
+          - link "Locations" [ref=f1e17]:
+            - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - listitem [ref=f1e18]:
+          - link "Admin Page" [ref=f1e19]:
+            - /url: admin.htm
+      - list [ref=f1e20]:
+        - listitem [ref=f1e21]:
+          - link "home" [ref=f1e22]:
+            - /url: index.htm
+        - listitem [ref=f1e23]:
+          - link "about" [ref=f1e24]:
+            - /url: about.htm
+        - listitem [ref=f1e25]:
+          - link "contact" [ref=f1e26]:
+            - /url: contact.htm
+    - generic [ref=f1e27]:
+      - generic [ref=f1e28]:
+        - heading "Customer Login" [level=2] [ref=f1e29]
+        - generic [ref=f1e30]:
+          - generic [ref=f1e31]:
+            - paragraph [ref=f1e32]: Username
+            - textbox [active] [ref=f1e34]
+            - paragraph [ref=f1e35]: Password
+            - textbox [ref=f1e37]
+            - button "Log In" [ref=f1e39] [cursor=pointer]
+          - paragraph [ref=f1e40]:
+            - link "Forgot login info?" [ref=f1e41]:
+              - /url: lookup.htm
+          - paragraph [ref=f1e42]:
+            - link "Register" [ref=f1e43]:
+              - /url: register.htm
+      - generic [ref=f1e44]:
+        - heading "Error!" [level=1] [ref=f1e45]
+        - paragraph [ref=f1e46]: The username and password could not be verified.
+  - generic [ref=f1e48]:
+    - list [ref=f1e49]:
+      - listitem [ref=f1e50]:
+        - link "Home" [ref=f1e51]:
+          - /url: index.htm
+        - text: "|"
+      - listitem [ref=f1e52]:
+        - link "About Us" [ref=f1e53]:
+          - /url: about.htm
+        - text: "|"
+      - listitem [ref=f1e54]:
+        - link "Services" [ref=f1e55]:
+          - /url: services.htm
+        - text: "|"
+      - listitem [ref=f1e56]:
+        - link "Products" [ref=f1e57]:
+          - /url: http://www.parasoft.com/jsp/products.jsp
+        - text: "|"
+      - listitem [ref=f1e58]:
+        - link "Locations" [ref=f1e59]:
+          - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - text: "|"
+      - listitem [ref=f1e60]:
+        - link "Forum" [ref=f1e61]:
+          - /url: http://forums.parasoft.com/
+        - text: "|"
+      - listitem [ref=f1e62]:
+        - link "Site Map" [ref=f1e63]:
+          - /url: sitemap.htm
+        - text: "|"
+      - listitem [ref=f1e64]:
+        - link "Contact Us" [ref=f1e65]:
+          - /url: contact.htm
+    - paragraph [ref=f1e66]: © Parasoft. All rights reserved.
+    - list [ref=f1e67]:
+      - listitem [ref=f1e68]: "Visit us at:"
+      - listitem [ref=f1e69]:
+        - link "www.parasoft.com" [ref=f1e70]:
+          - /url: http://www.parasoft.com/
+```
+
+# Test source
+
+```ts
+  1  | import {Page,Locator} from "@playwright/test";
+  2  | 
+  3  | export class AccountServices{
+  4  | 
+  5  |     readonly page:Page;
+  6  |     readonly OpenNewAccount:Locator;
+  7  |     readonly AccountsOverview:Locator;
+  8  |     readonly TransferFunds:Locator;
+  9  |     readonly BillPay:Locator;
+  10 |     readonly FindTransactions:Locator;
+  11 |     readonly UpdateContactInfo:Locator;
+  12 |     readonly RequestLoan:Locator;
+  13 |     readonly LogOut:Locator;
+  14 |     
+  15 | 
+  16 |     constructor(page:Page){
+  17 |         this.page=page;
+  18 |         this.OpenNewAccount = page.getByRole('link', {name: 'Open New Account'});
+  19 |         this.AccountsOverview = page.getByRole('link', {name: 'Accounts Overview'});
+  20 |         this.TransferFunds = page.getByRole('link', {name: 'Transfer Funds'});
+  21 |         this.BillPay = page.getByRole('link', {name: 'Bill Pay'});
+  22 |         this.FindTransactions = page.getByRole('link', {name: 'Find Transactions'});
+  23 |         this.UpdateContactInfo = page.getByRole('link', {name: 'Update Contact Information'});
+  24 |         this.RequestLoan = page.getByRole('link', {name: 'Request Loan'});
+  25 |         this.LogOut = page.getByRole('link', {name: 'Log Out'});
+  26 |     }
+  27 | 
+  28 |     async clickOnTransferFunds(){
+> 29 |         await this.TransferFunds.click();
+     |                                  ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  30 |     }
+  31 | }
+```
